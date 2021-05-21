@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include('../layout/head.ejs')%>
+<body>
+    <main >
+        <%-include('../layout/header.ejs')%>
+        <section>
+            <div class="index">
+                <p>Total confirmed: <%=world.TotalConfirmed%></p>
+            </div>
+
+            <div class="index">
+                <p>
+                    Total Deaths:<%=world.TotalDeaths%>
+                </p>
+            </div>
+            <div class="index">
+                <p>
+                    Total Recovered : <%=world.TotalRecovered%>
+                </p>
+            </div>
+        </section>
+
+        <form action="/search" method="GET">
+            <input type="text" name="country" placeholder="Enter A Country">
+            <input type="date" name="from">
+            <input type="date" name="to">
+            <input type="submit" value="Search">
+        
+        </form>
+    </main>
+    <%-include('../layout/footer.ejs')%>
+</body>
+</html>

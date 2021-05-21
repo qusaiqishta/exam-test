@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<%-include('../layout/head.ejs')%>
+<body>
+    <header>
+        <%-include('../layout/header.ejs')%>
+    </header>
+    <main id="records">
+        <%if(records.length>0){%>
+            <%records.forEach(country=>{%>
+                <div>
+                    <p><%=country.country%></p>
+                    <p>Date: <%=country.date%></p>
+                    <a href="/details/<%=country.id%>">Details</a>
+                </div>
+
+          <%  })%>
+
+       <% }else{%>
+        <h2>No Records Available</h2>
+
+      <% }%>
+    </main>
+    <%-include('../layout/footer.ejs')%>
+</body>
+</html>

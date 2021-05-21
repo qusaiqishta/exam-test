@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include('../layout/head.ejs')%>
+
+<body>
+  <header>
+    <%-include('../layout/header.ejs')%>
+
+  </header>
+  <main id="allCountries" >
+    <%wholeCountries.forEach(country=>{%>
+      <div id="all">
+        <p><%=country.country%></p>
+        <p> confirmed Cases:<%=country.totalConfirmed%></p>
+        <p> Total Deaths:<%=country.totalDeaths%></p>
+        <p> Total Recovered:<%=country.totalRecovered%></p>
+        <p>Date:<%=country.date%></p>
+        
+        <form action="/records" method="POST">
+        <input type="hidden" name="country" value="<%=country.country%>">
+        <input type="hidden" name="confirmedCases" value="<%=country.totalConfirmed%>">
+        <input type="hidden" name="totalDeaths" value="<%=country.totalDeaths%>">
+        <input type="hidden" name="totalRecovered" value="<%=country.totalRecovered%>">
+        <input type="hidden" name="date" value="<%=country.date%>">
+        <button type="submit"> Add To My Records </button>
+        
+        
+        
+      </form>
+    </div>
+      <% })%>
+  </main>
+  <%-include('../layout/footer.ejs')%>
+
+</body>
+</html>
